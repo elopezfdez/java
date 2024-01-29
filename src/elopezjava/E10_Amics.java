@@ -35,7 +35,8 @@ class Amic {
 public class E10_Amics{
      
     public static void main(String[] args) throws IOException {
- 
+    	BufferedReader entrada = new BufferedReader(
+                new InputStreamReader(System.in));
         Amic[] amics = {
                 new Amic("Joan", "10/3/1994"), 
                 new Amic("Isa", "29/11/1990"), 
@@ -73,6 +74,19 @@ public class E10_Amics{
         }
  
         if (!encontrado) System.out.println("No existe.");
+        
+        System.out.print("Escribe el nombre de un amigo");
+        String amigo = entrada.readLine();
+        boolean encontrar=false;
+        for (int i =0;i<amics.length; i++) {
+        	if (amics[i].nom.equalsIgnoreCase(amigo)) {
+        		System.out.println("Tu amigo "+amigo+" nacio el "+ amics[i].naix);
+        		encontrar=true;
+        	}
+        }
+        if (!encontrar) {
+        System.out.println("No existe");
+        }
     }
      
     static String llegirNom() throws IOException {
